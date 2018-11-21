@@ -13,20 +13,17 @@
 
         public function validationRegister(Validator $validator)
         {
-            #Name
-            $validator->notEmpty('name');
+            #LastName
+            $validator->notEmpty('lastname');
                 
+            #FirstName
+            $validator->notEmpty('firstname');
+
             #Email
             $validator->notEmpty('email')
                 ->add('email', 'valid', [
                     'rule' => 'email',
                     'message' => 'Please enter valid email adress',
-                ]);
-            #Username
-            $validator->notEmpty('username')
-                ->add('username', 'lengthBetween', [
-                    'rule' => ['lengthBetween', 0,20],
-                    'message' => 'Invalid length, must be between 8 and 20',
                 ]);
 
             #Password

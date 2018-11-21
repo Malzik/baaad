@@ -10,12 +10,19 @@
 		echo $this->Form->create($users);
 		echo $this->Form->controls(
 			[
-				'name' => [
-					'name' => 'name',
-					'placeholder' => 'Enter Your Name',
+				'lastname' => [
+					'name' => 'lastname',
+					'placeholder' => 'Enter Your Lastname',
 					'required' => false,
-					'label' => 'Name',
-					'class' => ($this->Form->isFieldError('name')) ? 'form-control is-invalid' : 'form-control'
+					'label' => 'Lastname',
+					'class' => ($this->Form->isFieldError('lastname')) ? 'form-control is-invalid' : 'form-control'
+				],
+				'firstname' => [
+					'name' => 'firstname',
+					'placeholder' => 'Enter Your Firstname',
+					'required' => false,
+					'label' => 'Firstname',
+					'class' => ($this->Form->isFieldError('firstname')) ? 'form-control is-invalid' : 'form-control'
 				],
 
 				'email' => [
@@ -26,14 +33,6 @@
 					'class' => ($this->Form->isFieldError('email')) ? 'form-control is-invalid' : 'form-control'
 				],
 					
-				'username' => [
-					'name' => 'username',
-					'placeholder' => 'Enter Your Username',
-					 'required' => false,
-					'label' => 'Username',
-					'class' => ($this->Form->isFieldError('username')) ? 'form-control is-invalid' : 'form-control'
-				],
-
 				'password' => [
 					'type' => 'password',
 					'name' => 'password', 
