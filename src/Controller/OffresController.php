@@ -9,7 +9,6 @@ class OffresController extends AppController
             $this->viewBuilder()->setLayout('user');
             $this->set('user_session', $this->request->getSession()->read('Auth.User'));
         }
-        $this->set('title', '123album.photo');
 	}
 }
 ?>

@@ -8,7 +8,7 @@ class UsersController extends AppController
 {
     public function login()
     {
-        $this->set('title', 'Login');
+        $this->set('title', 'Connexion');
         if($this->Auth->user('id')) {
             return $this->redirect([
                 'controller' => 'Offres',
@@ -23,7 +23,7 @@ class UsersController extends AppController
                 //Sauvegarde dans la base
                 if ($check_login->getErrors()) {
                     //Error
-                    $this->Flash->error('Fill require fields');
+                    $this->Flash->error('Valeurs saisie non valides');
                 }
                 else {
                     $user = $this->Auth->identify();
@@ -31,7 +31,7 @@ class UsersController extends AppController
                         $this->Auth->setUser($user);
                         return $this->redirect($this->Auth->redirectUrl());
                     } else {
-                        $this->Flash->error(__("Nom d'utilisateur ou mot de passe incorrect"));
+                        $this->Flash->error(__("Email ou mot de passe incorrect"));
                     }
                 }
             }
@@ -41,7 +41,7 @@ class UsersController extends AppController
 
     public function register()
     {
-        $this->set('title', 'Register');
+        $this->set('title', 'Inscription');
 
         $sign = $this->Users->newEntity(); //['validate' => 'sign'] -> appel validationSign
         if($this->request->is('post')) {
@@ -50,15 +50,13 @@ class UsersController extends AppController
             //Sauvegarde dans la base
             if ($this->Users->save($post)) {
                 //Succès
-                $this->Flash->success(__('User Added Successfully', ['key' => 'message']));
+                $this->Flash->success(__('Veuillez vous connecter', ['key' => 'message']));
                 return $this->redirect(['action' => 'login']);
             }
             //Echec
-            $this->Flash->error(__('Unable to add your user ! '));
+            $this->Flash->error(__('Impossible de vous inscrire, vérifiez vos informations ! '));
         }
         $this->set('sign', $sign);
-
-        $this->set('title', 'Register');
     }
 
     public function logout() {

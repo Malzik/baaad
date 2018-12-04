@@ -14,12 +14,18 @@
         echo $this->Form->create($login);
         echo $this->Form->controls(
             [
-                'email'     => ['required'  => false, 'placeholder' => 'Adresse Mail', 'label' => ['class'=> 'form-control-label','text' => 'User Email']],
-                'password'  => ['required'  => false, 'placeholder' => 'Mot de passe', 'label' => ['class'=> 'form-control-label']],
+                'email'     => ['type' => 'email', 'required'  => true,
+                    'placeholder' => 'Email',
+                    'label' => ['class'=> 'form-control-label','text' => 'Entrez votre Email']
+                ],
+                'password'  => ['type' => 'password', 'required'  => true,
+                    'placeholder' => 'Mot de passe',
+                    'label' => ['class'=> 'form-control-label', 'text' => 'Entrez votre mot de passe']
+                ],
             ],
-            [ 'legend' => 'User Sign In Here']
+            [ 'legend' => 'Connexion']
         );
-        echo $this->Form->button('<i class="fa fa-user"></i> Sign In',['class' => 'btn btn-success btn-block']);
+        echo $this->Form->button('<i class="fa fa-user"></i> Se Connecter',['class' => 'btn btn-success btn-block']);
         echo $this->Form->end();
         ?>
     </div>

@@ -24,22 +24,26 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <?= $this->Html->image('logo.png', ['width' => '5%'], ['alt' => 'Logo']); ?>
+
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-4">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+                    <?= $this->Html->link($this->Html->image('logo.png', ['width' => '40px'], ['alt' => 'Logo']), '/', ['class' => 'mr-auto', 'escape' => false]); ?>
+                </li>
+                <?= '&nbsp'; ?>
+                <li class="nav-item active">
+                    <?= $this->Html->link('<i class="fa fa-home"> Accueil </i><span class="sr-only"> (current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Téléchargez notre application</a>
+                    <?= $this->Html->link('<i class="fa fa-download"> Telecharger notre application </i><span class="sr-only"> (current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
             </ul>
             <div class="mt-2 my-lg-0">
                 <i class="fa fa-stroopwafel"></i>
                 <?php
-                    echo $this->Html->link('Register', '/register',
+                    echo $this->Html->link('Inscription', '/register',
                         ['class' => 'btn btn-primary my-2 my-sm-0'] );
                     echo '&nbsp';
-                    echo $this->Html->link('Login', '/login',
+                    echo $this->Html->link('Connexion', '/login',
                         ['class' => 'btn btn-success my-2 my-sm-0'] );
                 ?>
             </div>

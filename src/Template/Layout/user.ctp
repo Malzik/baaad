@@ -18,23 +18,32 @@
 </head>
 <body>
 <!-- Nav Bar -->
+<!-- Nav Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <?= $this->Html->image('logo.png', ['width' => '5%'], ['alt' => 'Logo']); ?>
+
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-4">
             <li class="nav-item active">
-                <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+                <?= $this->Html->link($this->Html->image('logo.png', ['width' => '40px'], ['alt' => 'Logo']), '/', ['class' => 'mr-auto', 'escape' => false]); ?>
+            </li>
+            <?= '&nbsp'; ?>
+            <li class="nav-item active">
+                <?= $this->Html->link('<i class="fa fa-home"> Accueil </i><span class="sr-only"> (current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Téléchargez notre application</a>
+                <?= $this->Html->link('<i class="fa fa-download"> Telecharger notre application </i><span class="sr-only"> (current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
             </li>
         </ul>
-        <div class="mt-2 my-lg-0">
-            <?= $this->Html->link($this->request->getSession()->read("Auth.User.username").' <i class="fa fa-sort-down"></i>', '/logout', ['class' => 'nav-link', 'escape' => false]); ?>
+        <div class="mt-2 my-lg-0 btn-group">
+                <?= $this->Form->button($this->request->getSession()->read("Auth.User.username"), ['class' => 'btn btn-success dropdown-toggle','type' => 'button',  'data-toggle' => 'dropdown', 'aria-haspopup' => true, 'aria-expanded' => false]);?>
+                <div class="dropdown-menu dropdown-menu-right w-100" style="right:0; left:auto;">
+                    <?= $this->Html->link("Se deconnecter", ['controller' => 'Users','action'=> 'logout'], ['class' => 'button, dropdown-item', 'type' => 'button'])?>
+                </div>
+
         </div>
     </div>
 </nav>

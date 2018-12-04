@@ -36,6 +36,7 @@ class AppController extends Controller
             ],
             'storage' => 'Session'
         ]);
+        $this->set('title', '123album.photo');
     }
     public function beforeFilter(Event $event)
     {

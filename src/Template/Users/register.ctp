@@ -1,7 +1,6 @@
 <br><br>
-<div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+<div>
+    <div class="container">
         <?php
         echo $this->Flash->render();
 
@@ -15,18 +14,32 @@
         echo $this->Form->create($sign);
         echo $this->Form->controls(
             [
-                'name'      => ['required'  => false, 'placeholder' => 'Enter Name', 'label' => ['class'=> 'form-control-label', 'text' => 'User Full Name']],
-                'username'  => ['required'  => false, 'placeholder' => 'Enter Username', 'label' => ['class'=> 'form-control-label','text' => 'User Username']],
-                'email'     => ['required'  => false, 'placeholder' => 'Enter Email Id', 'label' => ['class'=> 'form-control-label','text' => 'User Email']],
-                'password'  => ['required'  => false, 'placeholder' => 'Enter Password', 'label' => ['class'=> 'form-control-label']],
-                'confirm_password' => ['type' => 'password', 'required'  => false, 'placeholder' => 'Enter Confirm Password', 'label' => ['class'=> 'form-control-label']],
+                'name'      => ['type' => 'text','required'  => true,
+                    'placeholder' => 'Entrez votre nom sous la forme (Nom Prenom)',
+                    'label' => ['class'=> 'form-control-label', 'text' => 'Nom complet']
+                ],
+                'username'  => ['type' => 'text','required'  => true,
+                    'placeholder' => 'Entrez votre nom d\'utilisateur',
+                    'label' => ['class'=> 'form-control-label','text' => 'Nom d\'utilisateur']
+                ],
+                'email'     => ['type' => 'email','required'  => true,
+                    'placeholder' => 'Entrez votre email',
+                    'label' => ['class'=> 'form-control-label','text' => 'Email']
+                ],
+                'password'  => ['type' => 'password','required'  => true,
+                    'placeholder' => 'Enter votre mot de passe (Entre 8 et 50 caractères)',
+                    'label' => ['class'=> 'form-control-label', 'text' => 'Mot de passe']
+                ],
+                'confirm_password' => ['type' => 'password', 'required'  => true,
+                    'placeholder' => 'Confirmation du mot de passe',
+                    'label' => ['class'=> 'form-control-label', 'text' => 'Confirmation du mot de passe']
+                ],
             ],
-            [ 'legend' => 'User Sign Up Here']
+            [ 'legend' => 'Inscription']
         );
-        echo $this->Form->button('<i class="fa fa-user"></i> SignUp',['class' => 'btn btn-success btn-block']);
+        echo $this->Form->button('<i class="fa fa-user"></i> S\'inscrire',['class' => 'btn btn-success btn-block']);
         echo $this->Form->end();
         ?>
         <br>
     </div>
-    <div class="col-lg-4"></div>
 </div>

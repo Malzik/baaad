@@ -9,8 +9,8 @@ class UsersTable extends Table
 {
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['username'], 'Ce nom d\'utilisateur est déjà utilisé'));
+        $rules->add($rules->isUnique(['email'], 'Cette adresse mail est déjà utilisée'));
         return $rules;
     }
     public function validationLogin(Validator $validator)
@@ -37,8 +37,7 @@ class UsersTable extends Table
         $validator
             ->requirePresence('name')
             ->ascii('name')
-            ->notEmpty('name', 'Veuillez compléter correctement ce champ')
-            ->lengthBetween('name', [5, 30]);
+            ->notEmpty('name', 'Veuillez compléter correctement ce champ');
         $validator
             ->requirePresence('username')
             ->ascii('username')
@@ -50,7 +49,7 @@ class UsersTable extends Table
             ->notEmpty('email', 'Veuillez compléter correctement ce champ')
             ->add('email', 'valid', [
                 'rule' => 'email',
-                'message' => 'Please enter valid email adress',
+                'message' => 'Entrez une adresse mail valide',
             ]);
         $validator
             ->requirePresence('password')
@@ -59,7 +58,7 @@ class UsersTable extends Table
             ->lengthBetween('password', [8, 50], 'Mot de passe compris entre 8 et 50 caractères')
             ->add('password', 'no-misspelling', [
                 'rule' => ['compareWith', 'confirm_password'],
-                'message' => 'Passwords are not equals',
+                'message' => 'Mot de passe non égaux',
             ]);
         $validator
             ->requirePresence('confirm_password')
@@ -67,7 +66,7 @@ class UsersTable extends Table
             ->notEmpty('confirm_password', 'Veuillez compléter correctement ce champ')
             ->add('confirm_password', 'no-misspelling', [
                 'rule' => ['compareWith', 'password'],
-                'message' => 'Passwords are not equals',
+                'message' => 'Mot de passe non égaux',
             ]);
 
         return $validator;
