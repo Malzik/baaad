@@ -16,6 +16,8 @@
         /* Register routes */
         $routes->connect('/register', ['controller' => 'Users', 'action' => 'register']);
 
+        $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
+
         $routes->fallbacks(DashedRoute::class);
     });
 ?>

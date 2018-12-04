@@ -21,12 +21,12 @@ class AppController extends Controller
                 'action' => 'login',
             ],
             'loginRedirect' => [
-                'controller' => 'Blog',
-                'action' => 'index',
+                'controller' => 'Offres',
+                'action' => 'displayOffres',
             ],
             'logoutRedirect' => [
-                'controller' => 'users',
-                'action' => 'login',
+                'controller' => 'Offres',
+                'action' => 'displayOffres',
             ],
             'authError' => 'Veuillez vous connecter pour accéder à cette page',
             'authenticate' => [

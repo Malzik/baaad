@@ -21,7 +21,7 @@ class UsersController extends AppController
                 //$post = données post
                 $check_login = $this->Users->patchEntity($login, $this->request->getData(), ['validate' => 'login']);
                 //Sauvegarde dans la base
-                if ($check_login->errors()) {
+                if ($check_login->getErrors()) {
                     //Error
                     $this->Flash->error('Fill require fields');
                 }
