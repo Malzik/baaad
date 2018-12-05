@@ -31,7 +31,7 @@ class UsersController extends AppController
                         $this->Auth->setUser($user);
                         return $this->redirect($this->Auth->redirectUrl());
                     } else {
-                        $this->Flash->error(__("Email ou mot de passe incorrect"));
+                        $this->Flash->error(__("Emailc ou mot de passe incorrect"));
                     }
                 }
             }

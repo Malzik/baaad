@@ -9,6 +9,8 @@ class OffresController extends AppController
             $this->viewBuilder()->setLayout('user');
             $this->set('user_session', $this->request->getSession()->read('Auth.User'));
         }
+        $query = $this->Offres->find('all');
+        $this->set('offres', $query);
 	}
 }
 ?>
