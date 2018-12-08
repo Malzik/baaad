@@ -42,6 +42,7 @@
                 <?= $this->Form->button($this->request->getSession()->read("Auth.User.username"), ['class' => 'btn btn-success dropdown-toggle','type' => 'button',  'data-toggle' => 'dropdown', 'aria-haspopup' => true, 'aria-expanded' => false]);?>
                 <div class="dropdown-menu dropdown-menu-right w-100" style="right:0; left:auto;">
                     <?= $this->Html->link("Se deconnecter", ['controller' => 'Users','action'=> 'logout'], ['class' => 'button, dropdown-item'])?>
+                    <?= $this->Html->link("Mon panierr", ['controller' => 'Profils','action'=> 'panier'], ['class' => 'button, dropdown-item'])?>
                 </div>
 
         </div>

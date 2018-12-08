@@ -37,6 +37,11 @@ class AppController extends Controller
             'storage' => 'Session'
         ]);
         $this->set('title', '123album.photo');
+
+        if($this->request->getSession()->read('Auth.User')) {
+            $this->viewBuilder()->setLayout('user');
+            $this->set('user_session', $this->request->getSession()->read('Auth.User'));
+        }
     }
     public function beforeFilter(Event $event)
     {
