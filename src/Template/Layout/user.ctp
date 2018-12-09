@@ -8,7 +8,7 @@
     <?= $this->Html->css('bootstrap.min') ?>
     <?= $this->Html->css('font-awesome.min') ?>
     <?= $this->Html->script('jquery-3.2.1.slim.min') ?>
-
+    <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js') ?>
     <?= $this->Html->script('bootstrap.min', ['block' => 'scriptBottom']) ?>
     <?= $this->Html->script('popper.min', ['class' =>'thumbnail img-responsive'], ['block' => 'scriptBottom']) ?>
 
